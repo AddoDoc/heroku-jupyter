@@ -3,6 +3,12 @@ dependencies:
   - notebook
   - ipywidgets
   - requests
+  - pandas
+  - numpy
+  - nltk
+  - scipy
+  - scikit-learn
+  - matplotlib
   # get dependencies for pgcontents
   - certifi
   - click
