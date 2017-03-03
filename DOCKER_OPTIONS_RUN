@@ -1,0 +1,3 @@
+-v /opt/jupyter/notebooks:/app/notebooks
+--log-opt max-size=50m
+
