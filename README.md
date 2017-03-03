@@ -49,6 +49,9 @@ mkdir /home/dokku/jupyter/nginx.conf.d/
 echo 'client_max_body_size 50M;' > /home/dokku/jupyter/nginx.conf.d/jupyter.conf
 ```
 
+7) Setup HTTPS on dokku using letsencrypt plugin
+  https://github.com/dokku/dokku-letsencrypt
+
 ### heroku - automatic deployment
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
