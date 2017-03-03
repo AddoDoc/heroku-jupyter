@@ -45,7 +45,8 @@ chown -R 32767:32767 /opt/jupyter
 
 6) Increase nginx file upload limit
 ```
-mkdir /home/dokku/jupyter/nginx.conf.d/
+sudo mkdir /home/dokku/jupyter/nginx.conf.d/
+sudo chown -R dokku:dokku /home/dokku/jupyter/nginx.conf.d
 echo 'client_max_body_size 50M;' > /home/dokku/jupyter/nginx.conf.d/jupyter.conf
 ```
 
