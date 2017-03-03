@@ -1,4 +1,4 @@
-# heroku-jupyter
+# heroku-jupyter (dokku)
 
 Use this application to deploy [Jupyter Notebook](https://jupyter.org/) to
 heroku or CloudFoundry. If a postgres database is available,
@@ -13,6 +13,41 @@ was not set.
 If you want to customize your app, easiest is to fork this repository.
 
 ## Installation instructions
+
+### dokku deployment
+
+1) 
+```
+git clone git@github.com:AddoDoc/heroku-jupyter.git
+```
+
+2) Add git remote for dokku
+
+```
+git remote add dokku dokku@<YOUR-DOKKU-HOST>:jupyter
+```
+
+3) Configure password for jupyter
+```
+dokku config:set jupyter JUPYTER_NOTEBOOK_PASSWORD=<YOUR-PASSWORD>
+```
+
+4) Map docker volume to persist all your notebooks across app restarts
+```
+Copy DOCKER_OPTIONS_DEPLOY file from the repo to /home/dokku/jupyter
+Copy DOCKER_OPTIONS_RUN file from the repo to /home/dokku/jupyter
+```
+5) Create local volume path on the host for above docker volume and give permission to dokku user
+```
+mkdir -p /opt/jupyter/notebooks
+chown -R 32767:32767 /opt/jupyter 
+```
+
+6) Increase nginx file upload limit
+```
+mkdir /home/dokku/jupyter/nginx.conf.d/
+echo 'client_max_body_size 50M;' > /home/dokku/jupyter/nginx.conf.d/jupyter.conf
+```
 
 ### heroku - automatic deployment
 
